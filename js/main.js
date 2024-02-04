@@ -1,11 +1,11 @@
 const milestonesData = JSON.parse(data).data;
-console.log(milestonesData);
+
 
 function loadMileStones() {
- const milestones = document.querySelector('.milestones')
+    const milestones = document.querySelector('.milestones')
 
- milestones.innerHTML = `${milestonesData.map( function (milestone){
-    return `<div class="milestone border-b">
+    milestones.innerHTML = `${milestonesData.map(function (milestone) {
+        return `<div class="milestone border-b">
     <div class="flex">
       <div class="checkbox"><input type="checkbox" /></div>
       <div>
@@ -16,11 +16,16 @@ function loadMileStones() {
       </div>
     </div>
     <div class="hidden_panel">
-      <div class="module border-b">
-        <p>Module Name</p>
-      </div>
+      ${milestone.modules.map(function (module) {
+
+            return `<div class="module border-b">
+        <p>${module.name}</p>
+      </div>`
+        }).join("") }
     </div>
   </div>`
- })}`
+    }).join("")}`
 
 }
+
+loadMileStones()
