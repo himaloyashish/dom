@@ -29,9 +29,18 @@ function loadMileStones() {
 }
 
 function openModule(moduleElement) {
-  const moduleNode = moduleElement.parentNode.nextElementSibling;
+  const currentPanel = moduleElement.parentNode.nextElementSibling;
+  const shownPanel = document.querySelector('.show');
 
-  moduleNode.classList.toggle('show')
+  if(!currentPanel.classList.contains('show') && shownPanel)
+  shownPanel.classList.remove('show');
+
+  
+
+
+  currentPanel.classList.toggle('show');
+
+
 }
 
-loadMileStones()
+loadMileStones();
