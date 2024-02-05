@@ -15,7 +15,7 @@ function loadMileStones() {
         </p>
       </div>
     </div>
-    <div class="hidden_panel show">
+    <div class="hidden_panel ">
       ${milestone.modules.map(function (module) {
 
       return `<div class="module border-b ">
@@ -29,7 +29,9 @@ function loadMileStones() {
 }
 
 function openModule(moduleElement) {
-  const moduleNode = moduleElement.parentNode.NextElementSibling;
+  const moduleNode = moduleElement.parentNode.nextElementSibling;
+
+  moduleNode.classList.toggle('show')
 }
 
 loadMileStones()
