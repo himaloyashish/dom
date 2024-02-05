@@ -31,13 +31,22 @@ function loadMileStones() {
 function openModule(moduleElement) {
   const currentPanel = moduleElement.parentNode.nextElementSibling;
   const shownPanel = document.querySelector('.show');
+  const active = document.querySelector('.active');
 
-  if(!currentPanel.classList.contains('show') && shownPanel)
-  shownPanel.classList.remove('show');
+  // first remove previous active class [if any other than the clicked one]
+  if (active && !moduleElement.classList.contains('active')) {
+    active.classList.remove('active')
+  };
 
-  
+  // toggle the active class
+  moduleElement.classList.toggle('active')
+
+  // first remove show class [if other than the clicked one]
+  if (!currentPanel.classList.contains('show') && shownPanel)
+    shownPanel.classList.remove('show');
 
 
+  // toggle the active
   currentPanel.classList.toggle('show');
 
 
