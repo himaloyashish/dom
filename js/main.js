@@ -59,10 +59,16 @@ function shownMilestone(id) {
   const name = document.querySelector(".title");
   const details = document.querySelector(".details")
 
+  milestoneImage.style.opacity = '0';
   milestoneImage.src = milestonesData[id].image;
   name.innerText = milestonesData[id].name;
   details.innerText = milestonesData[id].description;
 
+}
+
+const milestoneImage = document.querySelector(".milestoneImage");
+milestoneImage.onload = function () {
+  this.style.opacity = "1";
 }
 
 loadMileStones();
